@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarot Reading</title>
+  <link rel="stylesheet" href="style.css">
+  <script id="tarot-data" type="application/json" src="tarot-images.json"></script>
+</head>
+
+<body>
+
+  <!-- Header with Navbar -->
+  <header class="header">
+    <nav class="nav flex">
+      <a class="navbar" href="#">developed by: Cameron Angeleri</a>
+      <ul class="navbar-nav flex center">
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="getSingleCard()">Single Card Pull</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="getPastPresentFuture()">Past, Present, Future</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content Section *reading form & card container-->
+  <div class="main-body">
+
+    <!-- Card Section  -->
+    <div class="card-reading-container">
+
+      <!-- Three Card Reading -->
+      <div class="three-card-section row flex gap">
+
+        <!-- past / left card -->
+        <div class="past-card-container card-container" >
+          <div class="card-front flex center-col">
+          </div>
+          <div class="card-back flex center-col">
+            <img src="cards/m10.jpg" alt="default wheel of fortune card" id="past_img" class="card-img">
+          </div>
+        </div>
+
+        <!-- present / center card -->
+        <div class="present-card-container card-container">
+          <div class="card-front flex center-col">
+          </div>
+          <div class="card-back flex center-col">
+            <img src="cards/m17.jpg" alt="default star card" id="present_img" class="card-img">
+          </div>
+        </div>
+
+   <!-- future / right card -->
+<div class="future-card-container card-container" id="future-card-container">
+  <div class="card-front flex center-col"></div>
+  <div class="card-back flex center-col">
+    <img src="cards/m01.jpg" alt="default star card" id="future_img" class="card-img">
+    <div class="card-details" id="future-card-details">
+    
+    </div>
+  </div>
+</div>
+
+    </div>
+
+
+    <!-- Reading Section -->
+    <div class="reading-brief-container pad">
+      <!-- past  -->
+      <div id = "the_past_reading reading_sub_header">
+      <h4 class="3_card_text"><span id="past_header"></span><span id="past_card_name" class="card_name" 
+        onclick="displayCardDetails(this.innerText)"></span>
+        </h4>
+      <p id="past_card_description"></p>
+      <p id="past_card_description_shadow"></p>
+      <p id="past_card_question"></p>
+
+      </div>
+      
+      <!-- present -->
+      <div id = "the_present_reading reading_sub_header">
+        <h4 class="3_card_text"> <span id="present_header"></span>
+          <span id="present_card_name" class="card_name" 
+          onclick="displayCardDetails(this.innerText)">
+        </span></h4>
+        <p id="present_keywords"></p>
+        <p id="present_card_description"></p>
+        <p id="present_card_description_shadow"></p>
+        <p id="present_card_questions"></p>
+        <p id="present_card_fortune"></p>
+      </div>
+        
+        <!-- future -->
+        <div id = "the_future_reading reading_sub_header">
+          <h4 class="3_card_text"><span id="future_header"></span><span id="future_card_name" class="card_name" 
+            onclick="displayCardDetails(this.innerText)"></span>
+            </h4>
+          <p id="future_card_description"></p>
+          <p id="future_card_description_shadow"></p>
+          <p id="future_card_questions"></p>
+      </div>
+      
+    </div>
+
+    <!-- Reading Form -->
+    <div class="form-container">
+      <form class="reading-form flex center-col">
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Welcome"><br>
+        <label for="reading-options">Choose how you see your future:</label><br>
+        <select id="reading-options" name="reading-options">
+          <option value="Single Card" class="reading-selection" id="single-card">Single Card Pull</option>
+          <option value="Past, Present, Future" class="reading-selection" id="past-present-future">Past, Present, Future
+          </option>
+        </select><br>
+        <input type="button" value="Click for clarity" id="submit-button" onclick="readingCall()">
+      </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    </footer>
+</body>
+</html>
