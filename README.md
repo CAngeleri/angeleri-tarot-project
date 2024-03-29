@@ -1,0 +1,1 @@
+# angeleri-tarot-project
